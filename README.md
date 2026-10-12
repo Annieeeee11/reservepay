@@ -93,6 +93,7 @@ Merchants can withdraw only the surplus above locked liability. Reserve checks, 
 
 <details>
 <summary><b>Merchant workspace</b> — reserve overview, merchant profile, sessions and live data</summary>
+<br>
 
 The overview separates total reserve, funds backing open orders, and funds available to withdraw, with an on-chain order list filtered by open, completed, or refunded status. Payment links live on their own page. Sign a wallet message to access your link history and merchant profile; this login does not transfer funds.
 
@@ -104,6 +105,7 @@ The overview separates total reserve, funds backing open orders, and funds avail
 
 <details>
 <summary><b>Inbox and reminders</b> — refund updates, protection reminders and read state</summary>
+<br>
 
 Open the bell in the workspace header and sign in with your wallet. Merchants and buyers receive refund-request acknowledgements and finalized refund/completion updates for their orders. The current on-chain resolver receives pending-dispute notifications on the background sweep. No merchant registration is needed to read a buyer's inbox.
 
@@ -114,6 +116,7 @@ Open the bell in the workspace header and sign in with your wallet. Merchants an
 
 <details>
 <summary><b>Buyer checkout</b> — what each payment link shows</summary>
+<br>
 
 Each link shows the amount, merchant name (when configured), wallet, network, and protection period. After payment, the same URL becomes the receipt and the entry point for refund requests and order resolution.
 
@@ -121,6 +124,7 @@ Each link shows the amount, merchant name (when configured), wallet, network, an
 
 <details>
 <summary><b>Interface and appearance</b> — sidebar, navigation, wallet switching and color themes</summary>
+<br>
 
 The app also includes a collapsible sidebar (<kbd>⌘B</kbd>), mobile navigation, System/Light/Dark appearance, wallet switching, and recovery for pending transactions after a reload or uncertain network response. Components use Tailwind CSS and locally customized shadcn primitives.
 
@@ -191,6 +195,7 @@ flowchart LR
 
 <details>
 <summary><b>Repository layout</b> — where each part of the code lives</summary>
+<br>
 
 ```text
 apps/web/
@@ -227,6 +232,7 @@ The development command builds the shared package, starts Convex development, an
 
 <details>
 <summary><b>Environment variables</b> — web app, Convex backend and production settings</summary>
+<br>
 
 **Web app**
 
@@ -277,6 +283,7 @@ For production, select the intended deployment with the Convex CLI's `--prod` op
 
 <details>
 <summary><b>Commands</b> — scripts for development, checks, builds and the program</summary>
+<br>
 
 Run these from the repository root:
 
@@ -298,6 +305,7 @@ Run these from the repository root:
 
 <details>
 <summary><b>Solana program</b> — toolchain pin, fresh-clone builds and IDL sync</summary>
+<br>
 
 The Anchor integration suite additionally requires Rust, the Solana CLI/local validator, and the Anchor CLI. The toolchain used by CI and new builds is pinned in [Anchor.toml](Anchor.toml) `[toolchain]`: **anchor-cli 1.0.2** with **Agave (solana-cli) 3.1.7**.
 
@@ -327,6 +335,7 @@ Protocol initialization, resolver rotation, and keeper configuration live in [de
 
 <details>
 <summary><b>Deploying the frontend and backend</b> — Vercel, Convex and API compatibility</summary>
+<br>
 
 - **Frontend (Vercel):** Vercel builds with `bun run build` and serves `apps/web/dist`. Configure `VITE_CONVEX_URL` for the intended backend before building. A frontend deployment does **not** deploy Convex changes or the Solana program.
 - **Backend (Convex):** Deploy backend changes to the matching Convex deployment before enabling frontend code that depends on them. For a production Convex deployment, run `bun run deploy:backend` from `apps/web` with that deployment’s credentials. For a development deployment, use `bunx convex dev --once` there. Check the target deployment carefully; the hosted app still transacts on Solana **devnet**.
